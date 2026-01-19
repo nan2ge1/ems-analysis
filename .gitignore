@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.whl
+*.db
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / Packaging
+dist/
+build/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Mac OS
+.DS_Store
+
+# Agent / Tool internal
+.antigravity/
+.aiexclude
+
+# Data (Optional - usually good practice to ignore local data)
+# data/
