@@ -152,7 +152,7 @@ def run_dashboard(test: pd.DataFrame):
         margin=dict(l=20, r=20, t=40, b=20)
     )
 
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig, use_container_width=True)
 
     # --- 5. DATA TABLE (Transparency) ---
     with st.expander("View Detailed Raw Data"):

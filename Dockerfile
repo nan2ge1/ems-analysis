@@ -12,10 +12,10 @@ COPY pyproject.toml .
 # We install directly from requirements.txt to keep the image small
 # and avoid installing dev dependencies unless needed.
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install .
-
 # Copy the rest of the working directory contents into the container at /app
 COPY . .
+
+RUN pip install .
 
 # Make port 8501 available to the world outside this container
 EXPOSE 8501
