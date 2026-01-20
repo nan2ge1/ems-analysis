@@ -1,6 +1,5 @@
 import xgboost as xgb
 import pandas as pd
-from typing import Tuple
 
 def train_model(
     X_train: pd.DataFrame, 

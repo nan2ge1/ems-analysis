@@ -30,6 +30,7 @@ def run_analysis_pipeline():
     Returns:
         test (pd.DataFrame): Test dataset with 'prediction' column.
         df_house (pd.DataFrame): Raw household data.
+        reg (xgb.XGBRegressor): Trained XGBoost model.
     """
     # Step 1: Data Cleaning & Wrangling
     url = "data/household_data_60min_singleindex.csv"
@@ -91,7 +92,7 @@ def run_analysis_pipeline():
     # Prediction on test data
     test.loc[:, 'prediction'] = predict_and_clip(reg, X_test)
     
-    return test, df_house
+    return test, df_house, reg
 
 def run_cli_simulation(test):
     """
@@ -133,11 +134,11 @@ if __name__ == "__main__":
         def get_cached_pipeline():
             return run_analysis_pipeline()
             
-        test, df_house = get_cached_pipeline()
+        test, df_house, reg = get_cached_pipeline()
         run_dashboard(test)
         
     else:
         # CLI Mode
         print("Running in CLI mode...")
-        test, df_house = run_analysis_pipeline()
+        test, df_house, reg = run_analysis_pipeline()
         run_cli_simulation(test)
